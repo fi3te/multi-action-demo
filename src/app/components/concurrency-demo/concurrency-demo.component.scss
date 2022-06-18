@@ -1,0 +1,15 @@
+.container {
+    padding: 10px;
+}
+
+.app-overall-status {
+    margin-bottom: 10px;
+}
+
+.app-status-container {
+    display: grid;
+    grid-template-columns: repeat(10, min-content);
+    column-gap: 5px;
+    row-gap: 5px;
+    justify-items: start;
+}

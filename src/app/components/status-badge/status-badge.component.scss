@@ -1,0 +1,30 @@
+.app-card {
+    border-radius: 4px;
+    border: 1px solid;
+    height: 15px;
+    width: 80px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.app-tiny {
+    width: 15px; 
+}
+
+.app-pending {
+    background-color: lightgray;
+    border-color: darkgray;
+}
+
+.app-failed {
+    background-color: lightcoral;
+    border-color: darkred;
+}
+
+.app-completed {
+    background-color: lightgreen;
+    border-color: green;
+}

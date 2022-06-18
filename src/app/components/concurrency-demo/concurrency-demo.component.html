@@ -1,0 +1,9 @@
+<div class="container">
+    <h1>{{ label }}</h1>
+    <div class="app-overall-status">
+        <app-status-badge [status]="status$ | async"></app-status-badge>
+    </div>
+    <div class="app-status-container">
+        <app-status-badge *ngFor="let action$ of actions" [status]="action$ | async" [tiny]="true"></app-status-badge>
+    </div>
+</div>
