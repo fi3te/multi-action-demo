@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { startWith } from 'rxjs';
 import { Status } from 'src/app/models/status';
 import { DemoService } from 'src/app/services/demo/demo.service';
@@ -7,11 +7,12 @@ import { LimitedConcurrencyActionService } from 'src/app/services/limited-concur
 @Component({
   selector: 'app-limited-concurrency1',
   templateUrl: './limited-concurrency1.component.html',
-  styleUrls: ['./limited-concurrency1.component.scss']
+  styleUrls: ['./limited-concurrency1.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LimitedConcurrencyComponent1 {
 
-  private demoActions = [...Array(100).keys()]
+  private demoActions = [...Array(200).keys()]
     .map(() => this.demoService.demo$('limited1', 3));
 
   private connectableActions = this.demoActions

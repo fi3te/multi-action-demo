@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { catchError, Connectable, connectable, from, last, map, mergeMap, Observable, of, startWith, Subject, tap, toArray } from 'rxjs';
+import { catchError, Connectable, connectable, from, last, map, mergeAll, mergeMap, Observable, of, startWith, Subject, tap, toArray } from 'rxjs';
 import { reduce, Status } from 'src/app/models/status';
 
 @Injectable({
@@ -55,7 +55,7 @@ export class LimitedConcurrencyActionService {
 
   aggregate(actions: Observable<Status>[], concurrency: number): Observable<Status> {
     return from(actions).pipe(
-      mergeMap(action => action, concurrency),
+      mergeAll(concurrency),
       toArray(),
       map(statusValues => reduce(statusValues)),
       startWith(Status.PENDING),
